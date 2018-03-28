@@ -5,12 +5,35 @@
     xmlns:local="using:CustomControl1"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    d:DesignHeight="300"
-    d:DesignWidth="400">
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d">
+    <!--d:DesignHeight="300"
+    d:DesignWidth="400">-->
+    <UserControl.Resources>
+        <DataTemplate x:Key="PhotosTemplate">
+            <Grid
+                Background="White"
+                BorderBrush="Black"
+                BorderThickness="1">
+                <Image
+                    Source="{Binding Thumbnail}"
+                    Stretch="UniformToFill"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"/>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
 
     <Grid>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="174,242,0,0" TextWrapping="Wrap" Text="{Binding textblock, ElementName=userControl}" VerticalAlignment="Top"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="174,137,0,0" VerticalAlignment="Top" Width="100" Source="{Binding ImageSource, ElementName=userControl}"/>
+        <controls:AdaptiveGridView x:Name="adaptiveGridViewControl"
+                                       OneRowModeEnabled="False"
+                                       ItemHeight="200"
+                                       DesiredWidth="300"
+                                       SelectionMode="None"
+                                       IsItemClickEnabled="True"
+                                       ItemTemplate="{StaticResource PhotosTemplate}">
+        </controls:AdaptiveGridView>
     </Grid>
 </UserControl>

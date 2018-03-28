@@ -8,6 +8,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <local:MyUserControl1 HorizontalAlignment="Left" Margin="3,190,0,0" VerticalAlignment="Top" textblock="Hello World"/>
+        <!--<local:MyUserControl1 HorizontalAlignment="Left" Margin="3,190,0,0" VerticalAlignment="Top" textblock="Hello World"/>-->
+        <local:MyUserControl1 x:Name="myUserControl1"/>
     </Grid>
 </Page>

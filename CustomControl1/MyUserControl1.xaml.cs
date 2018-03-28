@@ -22,9 +22,18 @@ namespace CustomControl1
         public MyUserControl1()
         {
             this.InitializeComponent();
+            this.SizeChanged += OnSizeChanged;
         }
 
+        public async void Init()
+        {
+            adaptiveGridViewControl.ItemsSource = await new Data.PhotosDataSource().GetItemsAsync();
+        }
 
+        private void OnSizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("NewSize Width = " + e.NewSize.Width.ToString() + ", Height = " + e.NewSize.Height.ToString());
+        }
 
 
         public string textblock

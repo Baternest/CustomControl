@@ -25,6 +25,12 @@ namespace CustomControl1
         public MainPage()
         {
             this.InitializeComponent();
+            Loaded += Page_Loaded;
+        }
+
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            myUserControl1.Init();
         }
     }
 }
